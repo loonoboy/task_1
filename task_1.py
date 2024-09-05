@@ -22,7 +22,7 @@ def save_data(selected_items, entry1, entry2):
     direct = entry1.get()
     filename = entry2.get()
     if not os.path.exists(direct):
-        os.makedirs(os.path.dirname(direct), exist_ok=True)
+        os.makedirs(os.path.dirname(direct), mode=0o777, exist_ok=True)
     with open(filename, 'w',encoding='utf-8') as file:
         file.write('\n'.join(selected_items))
 
